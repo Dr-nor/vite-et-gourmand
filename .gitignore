@@ -1,0 +1,13 @@
+# Symfony
+.env.local
+.env.local.php
+.env.*.local
+var/
+vendor/
+public/bundles/
+
+# Docker
+.env
+
+# macOS
+.DS_Store
