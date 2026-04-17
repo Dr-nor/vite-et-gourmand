@@ -1,0 +1,47 @@
+{# templates/partials/_navbar.html.twig #}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1A6BAD;">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ path('app_home') }}">
+            🍽️ Vite & Gourmand
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_menu_index') }}">Nos Menus</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
+                </li>
+                {% if app.user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_user_profile') }}">
+                            <i class="bi bi-person-circle"></i> Mon compte
+                        </a>
+                    </li>
+                    {% if is_granted('ROLE_EMPLOYE') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_admin_dashboard') }}">
+                            <i class="bi bi-speedometer2"></i> Admin
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light btn-sm ms-2 px-3"
+                           href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

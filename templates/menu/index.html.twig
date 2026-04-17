@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Menus — Vite & Gourmand{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="fw-bold mb-4" style="color: #1A6BAD;">Nos Menus</h1>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <input type="text" id="recherche" class="form-control"
+                       placeholder="🔍 Rechercher un menu...">
+            </div>
+        </div>
+
+        <div id="menus-grid" class="row g-4">
+            {% for menu in menus %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ menu.titre }}</h5>
+                        <p class="card-text text-muted">{{ menu.description }}</p>
+                        <span class="badge bg-primary fs-6">{{ menu.prix }} €</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_menu_show', {id: menu.id}) }}"
+                           class="btn btn-primary w-100">Voir le détail</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center text-muted">
+                <p>Aucun menu disponible.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

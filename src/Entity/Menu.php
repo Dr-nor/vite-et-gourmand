@@ -7,11 +7,12 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MenuRepository::class)]
+#[ORM\Table(name: 'menu')]
 class Menu
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(name: 'menu_id')]
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
@@ -20,13 +21,13 @@ class Menu
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column]
+    #[ORM\Column(name: 'nombre_personne_minimum')]
     private ?int $nombrePersonneMinimum = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $prix = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(name: 'quantite_restante', nullable: true)]
     private ?int $quantiteRestante = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -45,7 +46,6 @@ class Menu
     public function setTitre(string $titre): static
     {
         $this->titre = $titre;
-
         return $this;
     }
 
@@ -57,7 +57,6 @@ class Menu
     public function setDescription(?string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
@@ -69,7 +68,6 @@ class Menu
     public function setNombrePersonneMinimum(int $nombrePersonneMinimum): static
     {
         $this->nombrePersonneMinimum = $nombrePersonneMinimum;
-
         return $this;
     }
 
@@ -81,7 +79,6 @@ class Menu
     public function setPrix(string $prix): static
     {
         $this->prix = $prix;
-
         return $this;
     }
 
@@ -93,7 +90,6 @@ class Menu
     public function setQuantiteRestante(?int $quantiteRestante): static
     {
         $this->quantiteRestante = $quantiteRestante;
-
         return $this;
     }
 
@@ -105,7 +101,6 @@ class Menu
     public function setConditions(?string $conditions): static
     {
         $this->conditions = $conditions;
-
         return $this;
     }
 }
