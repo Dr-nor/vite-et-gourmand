@@ -1,0 +1,83 @@
+/* ===== VITE & GOURMAND — styles personnalisés ===== */
+
+:root {
+    --primary:  #1A6BAD;
+    --accent:   #E8701A;
+    --success:  #2E8B57;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #FAFAFA;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Cards menus */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+}
+
+/* Boutons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: #155a91;
+    border-color: #155a91;
+}
+
+.btn-warning {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #c45e15;
+    border-color: #c45e15;
+    color: white;
+}
+
+/* Hero section */
+section[style*="1A6BAD"] {
+    background: linear-gradient(135deg, #1A6BAD 0%, #1A5276 100%) !important;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+}
+
+/* Badges prix */
+.badge.bg-primary {
+    background-color: var(--primary) !important;
+    font-size: 1rem;
+    padding: 0.4em 0.8em;
+}
+
+/* Responsive — mobile */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    .btn-lg {
+        font-size: 1rem;
+    }
+}
