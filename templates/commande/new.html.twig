@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commander — Vite & Gourmand{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="fw-bold mb-4" style="color: #1A6BAD;">
+                    🛒 Passer une commande
+                </h1>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Nombre de personnes
+                                </label>
+                                <input type="number" name="nb_personnes"
+                                       class="form-control" min="1" value="2" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Date de livraison
+                                </label>
+                                <input type="date" name="date_livraison"
+                                       class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Adresse</label>
+                                <textarea name="adresse" class="form-control"
+                                          rows="3" required></textarea>
+                            </div>
+                            <button type="submit"
+                                    class="btn btn-warning w-100 fw-bold btn-lg">
+                                ✅ Confirmer la commande
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

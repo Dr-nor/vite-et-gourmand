@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion Menus — Admin{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="fw-bold" style="color: #1A6BAD;">🍽️ Gestion des Menus</h1>
+            <a href="{{ path('app_admin_dashboard') }}"
+               class="btn btn-outline-secondary">← Dashboard</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover shadow-sm">
+                <thead style="background-color: #1A6BAD; color: white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Titre</th>
+                        <th>Prix</th>
+                        <th>Personnes min.</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for menu in menus %}
+                    <tr>
+                        <td>{{ menu.id }}</td>
+                        <td>{{ menu.titre }}</td>
+                        <td>{{ menu.prix }} €</td>
+                        <td>{{ menu.nombrePersonneMinimum }}</td>
+                        <td>
+                            <a href="{{ path('app_menu_show', {id: menu.id}) }}"
+                               class="btn btn-sm btn-outline-primary">Voir</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">
+                            Aucun menu
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
